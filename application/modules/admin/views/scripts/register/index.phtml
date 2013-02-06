@@ -1,0 +1,95 @@
+<?php 
+	$form = $this -> form;
+	//echo $form;
+?>
+<style type="text/css">
+	* { font-family: Verdana; font-size: 96%; }
+	label { width: 10em; float: left; }
+	label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+	p { clear: both; }
+	.selected { color:red; }
+	.submit { margin-left: 12em; }
+	em { font-weight: bold; padding-right: 1em; vertical-align: top; }
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	var day= '', month= '', year = '';
+	$("#date").change(function(event) {
+		day = $("#date option:selected").val();
+		$("#textBirthday").val(day + "/" + month + "/" + year);
+	});
+	$("#month").change(function(event) {
+		month = $("#month option:selected").val();
+		$("#textBirthday").val(day + "/" + month + "/" + year);
+	});
+	$("#year").change(function(event) {
+		year = $("#year option:selected").val();
+		$("#textBirthday").val(day + "/" + month + "/" + year);
+	});
+});
+</script>
+
+<br /><br />
+<div id="view-content">
+	<form action="<?php echo $form -> getAction()?>" method="<?php echo $form -> getMethod()?>" enctype="<?php echo $form -> getEnctype()?>" name = "frmRegister">
+		<table border="0">
+			<tr>
+				<td>Content Registry</td>
+			</tr>
+			<tr>
+				<td><?php echo $form -> UserName -> getLabel();?></td>
+				<td><input type="text" name ="UserName" id="UserName" value = 'thangvx'><p class = "textName"></p></td>
+			</tr>
+			<tr>
+				<td>Your PassWord:</td>
+				<td><input type="password" name ="PassWord" id="PassWord" value = 'thangvx87'><p class = "textPassWord"></p></td>
+			</tr>
+			<tr>
+				<td>Your Full Name:</td>
+				<td><input type="text" name ="FullName" id="FullName" value = 'thắng vũ'><p class = "textFullName"></p></td>
+			</tr>
+			<tr>
+				<td>Birthday:</td>
+				<td><?php  echo $form -> date;?>
+					<?php  echo $form -> month;?>
+					<?php  echo $form -> year;?>	
+					<input type="text" name = "Birthday" id = 'textBirthday'>
+					<p class = "textBirthday"></p>
+				</td>
+			</tr>
+			<tr>
+				<td>Your sex:</td>
+				<td>
+					<select name ="SexAccount">
+						  <option value="1" selected>Nam</option>
+						  <option value="2">Nữ</option>
+						  <option value="0">Giới tính</option>
+					</select>
+				<p class = "textSex"></p></td>
+			</tr>
+			<tr>
+				<td>Your Email:</td>
+				<td><input type="text" name ="Email" id="Email" value = 'thangvx87@gmail.com'><p class = "textEmail"></p></td>
+			</tr>
+			<tr>
+				<td>Your Hometown:</td>
+				<td><?php 	echo $form -> HomeTown;?><p class = "textHomeTown"></p></td>
+			</tr>
+			<tr>
+				<td>Phone number:</td>
+				<td><input type="text" name ="PhoneNumber" id="Email" value = '0985.494.001'><p class = "textPhoneNumber"></p></td>
+			</tr>
+			<tr>
+				<td>Capcha:</td>
+				<td><input type="text" name ="Capchar" id="Capchar" value = 'ABCdeF'><p class = "textCapchar"></p></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" name="Submit" value="SUBMIT">
+					<input type="reset" name="Reset" value="RESET">
+				</td>
+			</tr>
+		</table>
+	</form>
+ </div>
+ 

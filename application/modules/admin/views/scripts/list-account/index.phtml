@@ -1,0 +1,50 @@
+<br /><br />
+<style>
+	
+	a { color:blue; margin:5px; cursor:pointer; text-decoration:none }
+ 	a:hover { background:#E7E7E7 }
+</style>
+ 
+<div id='view-content'>
+<p>Hiển thị danh sách thành viên</p>
+	<table width='1086' height='52' border='1'> 
+		<tr> 
+			<td width='87'><div align='center' class='style3'>TT</div></td> 
+            <td width='388'><div align='center' class='style3'>UserName</div></td> 
+            <td width='114'><div align='center' class='style3'>FullName</div></td> 
+            <td width='116'><div align='center' class='style3'>Birthday</div></td> 
+            <td width='139'><div align='center' class='style3'>PhoneNumber</div></td>
+            <td width='139'><div align='center' class='style3'>Email</div></td>
+            <td width='139'><div align='center' class='style3'>SexAccount</div></td>
+            <td width='139'><div align='center' class='style3'>HomeTown</div></td>
+            <td width='139'><div align='center' class='style3'>Capchar</div></td>
+            <td width='139'><div align='center' class='style3'>PassWord</div></td>
+            <td width='280'><div align='center' class='style3'>Manager</div></td>
+            <td width='100'><div align='center' class='style3'>ID</div></td>
+		</tr> 
+        <?php 
+        	$count = 0;
+		?>
+        	<?php foreach ($this -> listUsers as $user) : ?>
+		        <tr> 
+		        	<td align = 'center'><?php echo $count; ?></td> 
+		            <td align = 'center'><?php echo $user-> UserName;?></td>
+		            <td align = 'center'><?php echo $user-> FullName;?></td>
+		            <td align = 'center'><?php echo $user-> Birthday;?></td>
+		            <td align = 'center'><?php echo $user-> PhoneNumber;?></td>
+		            <td align = 'center'><?php echo $user-> Email;?></td>
+		            <td align = 'center'><?php echo $user-> SexAccount;?></td>
+		            <td align = 'center'><?php echo $user-> HomeTown;?></td>
+		            <td align = 'center'><?php echo $user-> Capchar;?></td>
+		            <td align = 'center'><?php echo $user-> PassWord;?></td>
+				<td>
+					<a href="<?php echo $this->url(array('controller'=>'ListAccount','action'=>'delete-Row', 'paraDelete'=>$user->RegistryId));?>">Delete </a>
+					<a href="<?php echo $this->url(array('controller'=>'ListAccount','action'=>'edit-Member', 'paraEdit'=>$user->RegistryId));?>"> Edit</a>
+				</td>
+		        <td align = 'center'><?php echo $user-> RegistryId;?></td>
+				</tr>
+				<?php $count +=1?>
+			<?php endforeach; ?>	
+	</table> 
+</div>
+

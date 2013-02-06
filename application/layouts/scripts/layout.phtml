@@ -1,0 +1,41 @@
+<!-- application/layouts/scripts/layout.phtml -->
+<?php
+	echo $this->doctype()
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>examOnline - Luyện thi trực tuyến</title>
+	<script src="/js/jquery-1.8.3.min.js"></script>
+	<script src="/js/javascript.js"></script>
+</head>
+<body>
+<div id="header" style="background-color: #EEEEEE; height: 30px;">s
+	<div 
+		id="header-logo" style="float: left"><b>examOnline - Luyện thi trực tuyến</b>
+	</div>
+	<div id="header-navigation" style="float: right">
+		<a href="<?php echo $this->url(array('module'=>'admin', 'controller' => 'register'), 'moduleRoute', true)?>">Register</a>
+		<a href="<?php echo $this->url(array('module'=>'admin', 'controller' => 'ListAccount'), 'moduleRoute', true)?>">ListAccount</a>
+	</div>
+</div>
+<p>
+<input type ="button" id = "btnLayout" value ="Layout"> 
+<input type ="button" name ="btnListAccount" id = "btnListAccount" value = "ListAccount">
+<b id = "layout">Layout</b>
+<hr>
+<p>
+<?php
+	echo $this->layout()->content
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#btnListAccount").click(function(){
+	  $('form[name="frmRegister"]').hide();
+	  $('form[name="lisAccount"]').show();
+  });
+});
+</script>
+
+</body>
+</html>
